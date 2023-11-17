@@ -19,255 +19,65 @@
         </div>
     </header>
     <!-- Main page content-->
-    <div class="container-xl px-4 mt-n10">
-        <div class="card">
-            <div class="card-header">Point of Sale</div>
-                <div class="card-body">
-
-                  <div class="col-lg-12">
-                    <div class="row gx-3 mb-3">
-                        <!-- Form Group (first name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="fakturno">Faktur No</label>
-                            <input class="form-control" id="fakturno" type="text" readonly="readonly" value="{{ $faktur }}" >
-                        </div>
-                        <!-- Form Group (last name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="date_trans">Date Transcation</label>
-                            <input class="form-control" id="date_trans" type="text" readonly="readonly" value="{{ date('Y-m-d') }}" >
-                        </div>
+     <!-- Main page content-->
+     <div class="container-xl px-4 mt-n10">
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                      Customer
                     </div>
-
-                    <div class="row gx-3 mb-3">
-                        <!-- Form Group (first name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputFirstName">Visit Type</label>
-                            {{-- <input class="form-control" id="inputFirstName" type="text"  > --}}
-                            <select name="visit_type" id="visit_type" class="form-control">
-                                <option value="1">New</option>
-                                <option value="2">Renew</option>
-                                <option value="3">Other</option>
-                            </select>
-                        </div>
-                        <!-- Form Group (last name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputLastName">Marketing Referal</label>
-                            <select name="id_marketing" id="id_marketing" class="form-control">
-                                @foreach ($marketing_ref as $mf=>$vmf)
-                                @if($vmf->id != 1)
-                                <option value="{{ $vmf->id }}"> {{ $vmf->employee_name }} </option>
-                                @endif
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row gx-3 mb-3">
-                        <!-- Form Group (first name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputFirstName">ID Member</label>
-                            <input class="form-control" id="id_member" name="id_member" readonly="readonly" type="text"  >
-                        </div>
-                        <!-- Form Group (last name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputLastName">Member Name</label>
-                            <input class="form-control" id="member_name" name="member_name" readonly="readonly" type="text" >
-                        </div>
-                    </div>
-
-                    <div class="row gx-3 mb-3">
-                        <!-- Form Group (first name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputFirstName">Member Referal  </label>
-                                <select name="id_member_referal" id="id_member_referal" class="form-control">
-                                    @foreach ($member_ref as $mmf=>$vmmf)
-                                    <option value="{{ $vmmf->id }}"> {{ $vmmf->member_name }} </option>
-                                    @endforeach
-                                </select>
-                        </div>
-                        <!-- Form Group (last name)-->
-                        <div class="col-md-6">
-
-                        </div>
-                    </div>
-
-                    <div class="row gx-3 mb-3">
-                       <button type="button" id="search" onclick="SearchMember();"  class="btn btn-primary btn-block"> Search Member</button>
-                       <button type="button" id="service" onclick="SearchForm();"  class="btn btn-success btn-block"> Add Order</button>
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                   </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                      Featured
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
 
-                  <hr>
-                    <h3> Your Order</h3>
-                  &nbsp;
+        </div>
+        <div class="card">
+            <div class="card-header">Master Member</div>
+                <div class="card-body">
 
-             
-                  <table class="table table-result">
-                      <tr>
-                        <td>Service Name</th>
-                        <td>Personal Trainer</th>
-                        <td>Price</th>
-                        <td>Qty</th>
-                        <td>Discount</th>
-                        <td>Total</th>
-                      </tr>
-                  </table>
-                  <table class="table table-subco">
-                    <tr>
-                        <td colspan="5">Sub TOTAL</td>
-                        <td id="subtotal"></td>
-                    </tr>
-                  </table>
+                    <button class="btn btn-primary" onclick="AddData();">
+                        <div class="nav-link-icon"><i data-feather="archive"></i></div> &nbsp;
+                        Tambah Data
+                     </button>
+                    <br>
+                    &nbsp;
+                    <table id="example">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Barcode</th>
+                                <th>Member Name</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
 
-                  <br>
-                  <hr>
-                  <button class="btn btn-success btn-block"> Checkout </button>
-                  <button class="btn btn-danger btn-block"> Cancel </button>
+                        <tbody>
 
+                        </tbody>
+                    </table>
                 </div>
         </div>
     </div>
-    <!-- Modal -->
-
-    <!-- {{-- SearchModal --}} -->
-    <div class="modal" id="SearchModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Search Member</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <table id="listmember">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Barcode</th>
-                            <th>Member Name</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead> 
-                    <tbody>
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    {{-- SearchServiceModal --}}
-    <div class="modal" id="SearchServiceModal" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-
-            <div class="modal-header">
-              <h5 class="modal-title">Search Service</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            
-            <div class="modal-body">
-                <table id="listservice">
-                    <thead>
-                        <tr>
-                            <th>Service Code</th>
-                            <th>Service Name</th>
-                            <th>Category</th>
-                            <th>Unit</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-
-          </div>
-        </div>
-    </div>
-
-
-
-    <!-- {{-- searchservicemodal --}} -->
-    <div class="modal" id="ModalFormOrder" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Add Order</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            
-            <div class="modal-body">
-
-                <form action=""> 
-                    <label for="servicename"> Service Name </label>
-                    
-                   <div class="row">
-                    <div class="col-lg-9">
-                        <input type="text" name="servicename" readonly="readonly" class="form-control" id="servicename">
-                        <input type="hidden" name="idservice">
-                    </div>
-                    <div class="col-lg-3">
-                        <button class="btn btn-primary btn-block" type="button" onclick="SearchService();"> Choose Service / Package</button>
-                    </div>
-                   </div>
-                    
-    
-                    <label for=""> Price </label>
-                    <input type="text" name="price" class="form-control" id="price">
-                    <label for=""> Qty </label>
-                    <input type="text" name="servicename" class="form-control" id="servicename">
-                    <button class="btn btn-primary btn-block"> Add to Cart</button>
-                </form>
-       
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-    </div>
- 
-
-    <div style="position: absolute; bottom: 1rem; right: 1rem;">
-        <!-- Toast -->
-        <div class="toast" id="toastSave" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-            <div class="toast-header bg-primary text-white">
-                <i data-feather="bell"></i>
-                <strong class="mr-auto">  &nbsp; Pesan Sistem</strong>
-                <button class="ml-2 mb-1 btn-close" type="button" data-bs-dismiss="toast" aria-label="Close">                                                                </button>
-            </div>
-            <div class="toast-body">Data yang diinput sudah berhasil di simpan ke database.</div>
-        </div>
-    </div>
-
-    <div style="position: absolute; bottom: 1rem; right: 1rem;">
-        <!-- Toast -->
-        <div class="toast" id="toastDel" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-            <div class="toast-header bg-primary text-white">
-                <i data-feather="bell"></i>
-                <strong class="mr-auto"> &nbsp; Pesan Sistem</strong>
-                <button class="ml-2 mb-1 btn-close" style="float:right; margin-right:10px;" type="button" data-bs-dismiss="toast" aria-label="Close">                                                                </button>
-            </div>
-            <div class="toast-body bg-white text-black">Data yang terpilih sudah berhasil di hapus dari database.</div>
-        </div>
-    </div>
-
-
+  
 </main>
 <script>
         var fakturno = $("#fakturno").val();
